@@ -1,0 +1,113 @@
+Let $X$ be a smooth separated scheme$/\Bbbk$. A. Beilinsun and S.Lichtenbaum conjectured around 1982--1987 that there should exist certain complexes $\ZZ(n)$, $n \in \NN$ of
+schemes in Zariski topology on $\Sm /\Bbbk$ which have the following properties:
+\begin{enumerate}
+	\item
+			$\ZZ(0)$ is the constant sheaf $\zZz$.
+	\item
+			$\ZZ(1)$ is the complex $0^{\str}[-1]$:
+			\[
+					\cdots\to 0\to \underset{1}{\OoO^{\str}}\to0\to\cdots.
+			\]
+	\item
+			For every field $F / \Bbbk$,
+			\[
+					\HH_{\Zar}^n(\fFf, \ZZ(n)) \coloneq H^n(\ZZ(n)(\Spec \fFf)) = K_{n}^{\Mil}(\fFf)
+			\]
+			where $K_n^{\Mil}(\fFf)$ is the $n$-th Milnor $K$-group of $K_0^{\Mil}(\fFf)=2$,
+			$K_1^{\Mil}(\fFf)=\fFf^{\times}$, $K_2^{\Mil}(F)=K_2(\fFf)$.
+	\item
+			$\HH_{\Zar}^{2 n}(X,
+			\ZZ(n))=CH^n(x)$, where
+			\[
+					CH^n(x)=\ZZ\set{\text {cycles of }\codim=n} / \text { rat. equi.}
+			\]
+			is the $n$-th Chow group.
+	\item
+			There is a natural spectral sequere with
+			\[
+					E_2^{p, q} = \HH_{\Zar}^p(X,\ZZ(q))\Rightarrow K_{2q-p}(X),
+			\]
+			where $K_n(X)=\pi_{n+1}(B Q(\VECT(X)), 0)$ is the Quillen $K$-theory. Tensoring with
+			$\QQ$, the spectral sequence degenerates and one has $$ \HH_{\Zar}^i(X,
+			\ZZ(n))_{\QQ}=\gr_r^n K_ {2 n-i}(X)_{\QQ}, $$ where $\gr_r^n$ are quotient of the
+			$\gamma$-filtration.
+\end{enumerate}
+
+\subsection{motivic cohomology}
+
+We denote by $H^{p,q}=\HH_{\Zar}^p(X, \ZZ(q))$ the motivic cohomology of $X$. It
+satisfies the cancellation property: $$ H^{p, q}(X \times \GG_{m}, \ZZ)=H^{p, q}(X, \ZZ)
+\oplus H^{p-1, q-1}(X, \ZZ). $$
+
+It turns out that the group remains unchanged if we replace Zariski topology by Nisnevich
+topology. If one uses étale topology, the corresponding cohomologies are denoted by
+$H_L^{p, q}(X, \ZZ)$, the Lichtenbanm motivic cohomologies. It admits the following
+comparison
+\[
+		H_l^{p, q}(X, \ZZ/n)=H_{\et}^p(X, \underset{\uparrow=\mu_n^{\otimes q}}{\ZZ/n(q)}).
+\]
+f $\chi\Bbbk\nmid n$, The Beilinson--Lichtenbaum conjecture, proved by V.Voevodsky in
+2011 , states that $$ H^{p, q}(X, \ZZ / n) \rightarrow H_L^{p, q}(X, \ZZ / n) $$ is an
+isomorphism if $p \leq q$ and monomorplisin for $p=q+1$. So we obtain $$ H^{p, q}(X, \ZZ
+/ n)=H_{\et}^p(X, \ZZ / n(q)) $$ if $p \leq q$. If we take $X=\Spec(\Bbbk)$, this is the
+Milnor Conjecture, proved by V. Voerosky in 1996:
+\[
+		H^{p, p}(\Bbbk, \ZZ / n)=K_p^{\Mil}(\Bbbk) / n=H_{\et}^p(\Bbbk, \ZZ / n(p)).
+\]
+$$
+H^{p, q}(\Bbbk, \ZZ / n)=
+\begin{cases}
+	0                                  & p>q \\
+	H^{p, p}(\Bbbk, \ZZ / n)\tau^{q-p} & p<q
+\end{cases}
+$$
+where $\tau \in M_n(\Bbbk)=H^{0, 1}(\Bbbk, \ZZ / n)$ is the primitive root.
+
+Unlike finite coefficients, the $H^{p,q}(\Bbbk, \ZZ)$ is quite hard to compute for small
+$p$. The open question is the Beilinson--Somle vanishing conjecture: $$ H^{p, q}(\Bbbk,
+\ZZ)=0\quad \text { if } p<0. $$
+
+If $\chi\Bbbk=0$, this is known for number fields, function fields of genus $0$ curves
+over number field and their inductive limits. If $\chi\Bbbk>0$, this is known for finite
+fields and global fields.
+
+The motivic cohomologies could be realized in a triangulated category $\DM(\Bbbk)$, such
+that $$ H^{p, q}(X, \ZZ)=H_{\DM}(\ZZ(X), \ZZ(q)[p]) $$ where $\ZZ(X)$ is the motive of
+$X$ and $\ZZ(q)[p]=\GG_m^{n q}[p-q]$. Moreover, we can define the motivic homology $H_{p,
+		q}(X, \ZZ)$ as $$ H_{p, q}(X, \ZZ)=H_{\DM}(z(q)[p], \ZZ(X)). $$
+
+From the aspect of motives, we can derive theorem of all (co)homologies which can be
+represented in $\DM$. The main derives are the following:
+\begin{enumerate}
+	\item
+			If $E \rightarrow X$ is an $\AA^n$-bundle, we have $\ZZ(E)=\ZZ(X)$ in $\DM$.
+	\item
+			If $\set{U, V}$ is an open covering of $X$, we have the Mayer-Vietoris sequence in $\DM$. $$ \cdots
+			\rightarrow \ZZ(U \cap V) \rightarrow \ZZ(U) \oplus \ZZ(V) \rightarrow \ZZ(X) \rightarrow \cdots.
+			$$
+	\item
+			If $Y \subseteq X$ is a closed embedding of $\codim$ $c$ in $\Sm_{\Bbbk}$, we have a Gysin triangle
+			$$ \ZZ(X \setminus Y) \rightarrow \ZZ(X) \rightarrow \underset{=\ZZ(Y)(C)[2c]}{\ZZ(Y) \otimes
+				\ZZ(c)[2c]} \rightarrow \cdots. $$
+	\item
+			For any vector bundle $\eEe$ of rank $n$ on $X$, we have the projective bundle formula: $$
+			\ZZ(\mathbb{P}(\eEe))=\bigoplus_{i=0}^n \ZZ(X)(i)[2 i], $$ which defines the chern classes of
+			$\eEe$.
+	\item
+			For proper smooth $x$, the $\ZZ(x)$ has a strung dual $\ZZ(x)(-\dim x)[-2 \dim x]$ in $D M$, which
+			implies the Poincare duality $$ H^{p, q}(X, \ZZ)=H_{2 \dim X-p, 2 \dim X-q}(X, \ZZ). $$
+\end{enumerate}
+
+\subsection{Outline Of The Lesson}
+
+The course consists of the following:
+\begin{enumerate}
+	\item
+			Intersection theory
+	\item
+			Milnor $K$-thpory and cycle modules
+	\item
+			The (effective and stable) (allegories of motives and basic tools.
+	\item
+			Computation of $H^{n, n}$ and $H^{2 n, n}$
+\end{enumerate}

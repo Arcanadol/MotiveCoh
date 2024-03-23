@@ -1,0 +1,325 @@
+\begin{definition}{Cycle}{}
+	Let $X$ be a finite type scheme over $\Bbbk$. Define
+	$$
+	\ZZ_i(X)\coloneq\bigoplus_{C \subseteq X,\text { irr. cld.}\atop\dim C=i}\ZZ \cdot C, \quad\left(\ZZ(X)=\bigoplus_i \ZZ_i(X)\right),
+	$$
+	$$
+	\underset{\uparrow\emph{\text{A set}}}{\kKk_i(X)}\coloneq\set{\fFf \text { coherent on } X \dim\supp \fFf \leqslant i}
+	$$
+\end{definition}
+
+\begin{definition}{Intersect Properly}{1.2}
+	Let $X \in \Sm_{\Bbbk}$, $U, V \subseteq X$ irr. closed and $W \subseteq U \cap V$ be an irr. component. If
+	$$
+	\begin{aligned}
+		\dim W                   & =\dim U+\dim V-\dim X \\
+		\Leftrightarrow \codim W & =\codim U+\codim V,
+	\end{aligned}
+	$$
+	Say that $U, V$ \emph{intersection properly} at $W$. abbr. i.p..
+\end{definition}
+
+\begin{theorem}{}{1.3}
+	Let $\Bbbk \leq A$ be a noetherian regular local ring. $M, N$ are finitely generated $A$-mod and $\len(M \otimes N)<\infty$. Then
+	\begin{enumerate}
+		\item
+				$\len\left(\tor_i^A(M, N)\right)<\infty, \forall i \geqslant 0$
+		\item
+				$\chi(M, N)\coloneq\sum_{i=0}^{\dim A}(-1)^i\len_A\left(\tor_i^A(M, N)\right) \geqslant 0$.
+		\item
+				$\dim M+\dim N \leq \dim A$.
+		\item
+				$\dim M+\dim N<\dim A$ iff $\chi(M, N)=0$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	See J. P. Serre, \textit{Local Algebra}.
+\end{proof}
+
+\begin{proposition}{}{}
+	The \ref{thm:1.3} shows that, $\dim W \geqslant \dim V+\dim U-\dim X \Leftrightarrow \codim W \leq \codim U+\codim V$ in the context of Def \ref{def:1.2} .
+\end{proposition}
+
+\begin{definition}{Intersection Multiplicity}{1.5}
+	Let $X$, $W \subseteq U\cap V$ as in Def \ref{def:1.2}. Define the \emph{intersection multiplicity} $\mult_W(U, V)$ of $U, V$ at $W$ to be
+	\[
+			\mult_W(U, V)\coloneq \chi^{\O{X,W}}\left(\O{X, W} / \ppp_U, \O{X, W} / \ppp_V\right).
+	\]
+
+\end{definition}
+So $\mult_W(U, V) \geqslant 0$. $\mult_W(U, V)=0$ iff $U, V$ do not intersect properly at $W$.
+\begin{definition}{Intersection Product}{}
+	Let $X\in \Sm_{\Bbbk}$, $U\in \ZZ_a(X)$, $V\in \ZZ_b(X)$, If $U$, $V$ intersect properly at every component, define
+	\[
+			U\cdot V
+			= \sum_{W\subseteq U\cap V\atop \dim W=a+b-\dim X}
+			\underset{\uparrow\in \ZZ_{a+b-\dim X}(X)}{\mult_{W}(U,V)}
+	\]
+\end{definition}
+
+Ex. $X$ smooth projective surface, $C, D$ divisors on $x\in C \cap D)$, $\mult_X(C,
+D)=\len_{\O{X,x}}(\O{X,x} /(f, g))$.
+
+$C=\set{f=0}$, $D=\set{g=0}$ around $x$.
+
+\begin{definition}{Cycles of Sheaves}{}
+	Suppose $X$ is finite type$/\Bbbk$, $\fFf\!\in\!\kKk_a(X)$, define
+	\[
+			\ZZ_a(\fFf)=\sum_{\dim\bar{\eta}=a}\len_{\O{X,\eta}}(\fFf_{\eta})\cdot{\bar{\eta}}\in\ZZ_a(X)
+	\]
+\end{definition}
+
+\begin{definition}{Tor Sheaf\footnote{It's also a property.}}{}
+	By [GTM52, III, Ex 6.8], every coherent $\fFf$ on $X \in \Sm_{\Bbbk}$ has a free resolution:
+	$$
+	0 \to \eEe_k \rightarrow \eEe_{k-1}\to \cdots \to \eEe_0 \rightarrow \fFf \rightarrow 0,
+	$$
+	where $\set{\eEe_i}$ are locally free of finite rank (vector bundle). So for any coherent $\gGg$, we define
+	$$
+	\underset{\uparrow\emph{A sheaf}}{\Tor_i(\fFf, \gGg)}\coloneq H_i(\eEe_{\bullet} \otimes \gGg).
+	$$
+\end{definition}
+
+\begin{proposition}{}{}
+	Let $X\in \Sm_{\Bbbk}$ and $\fFf\!\in\!\kKk_a(X)$, $\gGg\!\in\!\kKk_b(X)$ intersect properly, we have
+	\[
+			\ZZ_a(\fFf)\cdot \ZZ_b(\gGg)=\sum_{i=0}(-1)^i\ZZ_{a+b-\dim X}(\Tor_i(\fFf,\gGg))
+	\]
+\end{proposition}
+\begin{proof}
+	The coefficients are defined locally, so we work locally. Let $X$ be affine and count the coefficients of $\bar{\xi}$ where $\dim\bar{\xi}=a+b-\dim X$. We have to show:
+	\[
+			\chi(\fFf_{\xi},\gGg_{\xi})
+			=\sum_{{\dim\bar{\lambda}=a,\dim\bar{\eta}=b}\atop{\xi\in\bar{\lambda}\cap\bar{\eta}}}^{\dim X}
+			\len(\fFf_{\lambda})\len(\gGg_{\eta})\cdot \mult_{\bar{\xi}}(\bar{\lambda},\bar{\eta}).
+	\]
+
+	Both $\fFf$ and $\gGg$ are finitely generated modules over a noetherian ring, which
+	admits a filtration
+	\[
+			0=M_0\subseteq\cdots\subseteq M_d=\fFf\text{ or }\gGg
+	\]
+	s.t. $M_i/M_{i-1}\cong\OX/\text{a prime}$. By additivity of both sides(from property of
+	Tor), we may assume $\fFf=\OX/\PPP$, $\gGg=\OX/\QQQ$,
+	$\xi\in\bar{\lambda}\cap\bar{\eta}$, so LHS${}=\mult_{\bar{\xi}}(\bar{\lambda},
+	\bar{\eta})$.
+
+	If $\dim \bar{\lambda}=a$ and $\dim \bar{\eta}=b$, the equality follows by
+	$\len(\fFf_\lambda)=\len(\gGg_\eta)=1$.
+
+	If $\dim \bar{\lambda}<a$ or $\dim \bar{\eta}<b$, the $\bar{\lambda}$ and $\bar{\eta}$ do
+	not intersect properly at $\bar{\xi}$, LHS${}=0={}$RHS.
+
+\end{proof}
+
+\begin{proposition}{}{}
+	The intersection product is commutative.
+\end{proposition}
+\begin{proposition}{}{}
+	The intersection product is associative.
+\end{proposition}
+
+\begin{proof}
+	Suppose $\fFf∈\kKk_a(X), \gGg \!\in\!\kKk_b(X), \hHh \!\in\!\kKk_c(X)$ and they intersect properly.
+
+	Define a double complex $\MmM_{i\!j}=L^i\otimes \gGg \otimes M^j$, where $L^{\bullet}$
+	and $M^{\bullet}$ is resolution of $\fFf$ and $\hHh$. Then
+	\[
+			\begin{aligned}
+				'\!E_{p, q}^2=\Tor_p\left(\fFf, \Tor_q(\gGg, \hHh)\right), \\
+				''\!E_{p, q}^2=\Tor_p\left(\Tor_q(\fFf, \gGg), \hHh\right).
+			\end{aligned}
+	\]
+	Suppose we have some additive function $\mathop l$. we have
+	\[
+			\begin{aligned}
+				\underset{\ZZ_a(\fFf)\cdot\left(\ZZ_b(\gGg)\ZZ_c(\hHh)\right)}{\sum_{p,q}(-1)^{p+q}\mathop l('\!E_{p,q}^2)}
+				 & = \sum_n(-1)^n\mathop l(H_n(\Tot(\MmM_{i\!j})))                                                                 \\
+				 & = \underset{\left(\ZZ_a(\fFf)\ZZ_b(\gGg)\right)\cdot\ZZ_c(\hHh)}{\sum_{p,q}(-1)^{p+q}\mathop l(''\!E_{p,q}^2)}.
+			\end{aligned}
+	\]
+	Since $\len$ is addictive in ess
+\end{proof}
+
+\begin{definition}{Exterior Product}{}
+	Suppose $X_1$, $X_2 \in \Sm_{\Bbbk}$, $\fFf_1 \!\in\!\kKk_{a_1}(X_1)$, $\fFf_2 \!\in\!\kKk_{a_2}(X_2)$. Define
+	$$
+	\ZZ_{a_1}(\fFf_1) \times \ZZ_{a_2}(\fFf_2)=\ZZ_{a_1+\dim X_2}(\pi_1^{\str} \fFf_1) \cdot \ZZ_{a_2+\dim{X_1}}(\pi_2^{\str} \fFf_2)
+	$$
+	where $\pi_i\colon X_1 \times X_2 \rightarrow X_i$ is the projection. (check its well-defined\footnote{by flat pullback})
+\end{definition}
+
+\begin{definition}{Direct Image}{}
+	Suppose $X$, $Y$ are finite type$/\Bbbk$ and $f\colon X\to Y$ is proper. For every irr. closed $C\subseteq X$ of $\dim a$, define
+	\[
+			f_{\str}C =
+			\begin{cases}
+				\left[\KK(C):\KK(f(C))\right]\cdot f(C)\in \ZZ_a(Y) & \dim f(C)=a; \\
+				0                                                   & \dim f(C)<a.
+			\end{cases}
+	\]
+	to be the \emph{direct image} of $C$ under $f$. Where $\KK(C)$ is the field of rational
+	functions of $C$.
+\end{definition}
+
+\begin{lemma}{}{1.14}
+	Suppose $X$, $Y$ are finite type$/\Bbbk$ of the same dimension $n$ and that $f\colon X \rightarrow Y$ is proper. Then there exists an open set $U \subseteq Y$ s.t.
+	\[
+			\dim (Y \setminus U)<n, \quad f\colon f^{-1}(U) \rightarrow U \text{ is finite.}
+	\]
+\end{lemma}
+
+\begin{proof}
+	Generic point $\xi\in Y$ and $\dim\bar{\xi}=n$. We can find $\xi\in U$ s.t. $f|_{U}$ has finite fibers by [GTM52, II, Ex 3.7] [GTM52, III, 11.2] such $f$ is finite.
+\end{proof}
+
+\begin{proposition}{}{}
+	Let $f\colon X \rightarrow Y$ be a proper morphism between finite type schemes$/\Bbbk$ and $\fFf\!\in\!\kKk_a(X)$.
+	\begin{enumerate}
+		\item
+				$f_{\str} \fFf\!\in\!\kKk_a(Y)$ and $\R^i\!f_{\str} \fFf \!\in\!\kKk_{a-1}(Y)$\footnote{higher direct image functors $\R^i\!f_{*}\colon \AB(X) \to \AB(Y)$ to be the
+				right derived functors of the direct image functor $f_*$}, $i>0$
+		\item
+				$f_{\str} \ZZ_a(\fFf)=\ZZ_a(f_{\str} \fFf)$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}
+		\item
+				$\R^i\!f_{\str}\fFf$ is coherent for all $i \geqslant 0$ by [GTM52, III, Thm 8.8].
+				We have $\supp \R^if_{\str}\fFf\subseteq \fFf$. If $f$ is finite, $f_{\str}$ is a exact functor so $\R^i f_{\str}\fFf =0$, $i>0$. For general cases, we may suppose $\dim f(\supp\fFf)=a$ and set $W=\supp\fFf$. We have a diagram
+				\[
+						\begin{tikzcd}
+							W\ar[d, "i", hook]\ar[r, "h"] & f(W)\ar[d, "j", hook] \\
+							X\ar[r, "f"] & Y
+						\end{tikzcd}
+						,
+				\]
+				where $h$ is also proper. So by Lem \ref{lem:1.14}, we get $V \subseteq f(W)$ s.t. $\dim
+				(f(W) \setminus V)<a$ and $h|_{V}$ is finite.
+
+				Denote by $\jJj$ the ideal sheaf of $W$, we have $0\subseteq \cdots \subseteq \jJj^s \fFf
+				\subseteq \cdots \fFf$ and
+				$$\jJj^s\!\fFf/\jJj^{s+1}\!\fFf=i_{\str}i^{\str}\jJj^s\!\fFf/\jJj^{s+1}\!\fFf.$$
+
+				By long exact sequence, it suffices to de the cases $\fFf=i_{\str}\gGg$ Then
+				\[
+						(\R^k\!f_{\str})i_{\str}\gGg = \R^k\!(f\circ i)_{\str}\gGg=j_{\str}\R^kh_{\str}\gGg
+				\]
+				Hence it suffices to consider $h$, But
+				\[
+						(\R^kh_{\str}\gGg)_V=\R^kh_{\str}(\gGg|_{f\inv(V)})=0,\quad k>0
+				\]
+				so $\supp \R^kh_{\str}\gGg\subseteq f(W)\setminus V$ if $k>0$, $\dim < a$.
+		\item
+				If $f$
+				is finite, let us write down the coefficients of $\xi$($\dim = a $) of both sides, namely
+				$$ \underset{\uparrow \in \ZZ_a(f_{\str}\fFf)}{\len\left((f_{\str}\fFf)_{\xi}\right)}=
+				\sum_{\eta \in f^{-1}(\xi)\atop \dim\bar{\eta}=a}\len(F_\eta) \cdot
+				\underset{f_{\str}\ZZ_a(\fFf)}{[\KK(\bar{\eta}): \KK(\overbar{f(\eta)})]}. $$ By
+				additivity, one reduces to the case when $X$ is affine and $\fFf=\OX / \PPP$.
+
+				For general cases cause Lem \ref{lem:1.14} and the case $f$ is finite.
+
+				\fbox{check it}
+				\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}{Pullback}{}
+	Suppose $f\colon X \rightarrow Y$, $Y \in \Sm_{\Bbbk}$ and $X$\footnote{may be not reducd} is closed  in $Z \in \Sm_{\Bbbk}$. Denote by $j\colon X \rightarrow Z \times Y$ is the graph map. For any $C \in \ZZ_a(X)$, $D \in \ZZ_b(Y)$ s.t. $C$ and $f^{-1}(D)$ i.p., define
+	$$
+	\underset{C\cap f\inv(D)}{C\cdot_f D}=j_{\str}^{-1}\underset{\supp\text{ in } X}{(\underline{j(C) \cdot(Z \times D)})} \in \ZZ_{a+b-\dim Y}(X)
+	$$
+	Pullback is fiber product of whole cycle:
+	$$
+	f^{\str}(D)=X\cdot_f D \quad(C\coloneq X)
+	$$
+\end{definition}
+
+\begin{proposition}{}{}
+	In the context above, for $\fFf \!\in\!\kKk_a(X)$, $\gGg\!\in\!\kKk_b(Y)$, if $\fFf$, $f^{\str} \gGg$ i.p., we have
+	$$
+	\ZZ_a(\fFf)\cdot_f\ZZ_b(\gGg)=\sum_{i=0}^{\dim Y}(-1)^i \ZZ_{a+b-\dim Y}\left(\L_i(\fFf_i\otimes f^{\str}) \gGg\right).
+	$$
+\end{proposition}
+
+\begin{proof}
+	Denote by $\pi_2: Z \times Y \rightarrow Y$ the second projection. By linearity and the definition,
+	\[
+			\ZZ_a(\fFf)\cdot_f\ZZ_b(\gGg)=j\inv_{\str}\left(\ZZ_a(j_{\str}\fFf)\cdot\ZZ_{b+\dim Z}(\pi_2^{\str}\gGg)\right),
+	\]
+	$j\colon X\to Z\times Y$.
+
+	Suppose $\lLl^{\bullet} \rightarrow \gGg$ is the locally free resolution of $\gGg$. Note
+	that $\forall i \geqslant 0$, we have $$ j^{\str}\left(j_{\str} \fFf \otimes
+	{\pi_2^{\str}}\! \lLl_i\right)=\fFf \otimes {f^{\str}}\! \lLl_i, $$ which induces an
+	isomurphism $$j_{\str} \fFf \otimes \pi_2^{\str} \lLl_i=j_{\str}\left(\fFf \otimes
+	f^{\str}\! \lLl_i\right).$$
+
+	Take the homology,
+	\[
+			\Tor_i^{\O{Z\times Y}}(j_{\str}\fFf,\pi_2\gGg)=j_{\str}\L_i(\fFf\otimes f^{\str})\gGg,
+	\]
+	So
+	\[
+			j\inv_{\str}\ZZ_{a+b-\dim Y}(\Tor_i^{\O{Z\times Y}}(j_{\str}\fFf,\pi_2^{\str}\gGg))=\ZZ_{a+b-\dim Y}(\L_i(\fFf\otimes f^{\str})\gGg).
+	\]
+	So the statement follows.
+\end{proof}
+
+\begin{proposition}{}{}
+	Let $X \in \Sm_{\Bbbk}$, $\fFf \!\in\!\kKk_a(X), \gGg \in K_b(X)$ and $\fFf$, $\gGg$ i.p. Denote by $\Delta\colon X \rightarrow X \times X$ the diagond map, we have
+	$$
+	\Delta^{\str}\left(\ZZ_a(\fFf) \times \ZZ_b(\gGg)\right)=\ZZ_a(\fFf) \cdot \ZZ_b(\gGg).
+	$$
+\end{proposition}
+
+\begin{proposition}{}{}
+	$f^{\str}$ is compatible with intersection product and $f^{\str}\circ g^{\str}=(g \circ f)^{\str}$.
+\end{proposition}
+\begin{lemma}{}{1.20}
+	Let $\symfrak A$ be an abelian category enough projective (resp, injecting) objects and $\symsf F$ be a right (resp. left) exact functor from $\symfrak A$. Suppose $\CcC$ is a homology complex in $\symfrak A$. Then there is a double complex $\MmM_{i\!j}$ in $\symfrak A$ s.t.
+	$$
+	'\!E_{p, q}^2=\L_p\symsf F H_q(\CcC) \quad\left(\text{resp. }'\!E_{p, q}^2=\R^{-p}\symsf F\left(H_q(\CcC)\right)\right)
+	$$
+\end{lemma}
+
+\begin{proof}
+	Use Cartan-Eilenberg( See Gelfand, Methods of homological algebra, proposition 11, page. 210) resolution $\CcC_{\bullet, \bullet}\rightarrow \CcC$ and consider the/double complex $\symsf F\CcC_{\bullet,\bullet}$. When $\symsf F$ is right flat. \fbox{need check}
+\end{proof}
+
+\begin{proposition}{Smooth $\cdot_f$}{}
+	Suppose $f: X \rightarrow Y$ is in $\Sm /\Bbbk$, $\fFf\!\in\!\kKk_a(X)$, $\gGg\!\in\!\kKk_b(Y)$ and all intersections needed are proper. We have
+	$$
+	\ZZ_a(\fFf) \cdot_f \ZZ_b(\gGg)=\ZZ_a(\fFf) \cdot f^{\str} \ZZ_b(\gGg).
+	$$
+\end{proposition}
+
+\begin{proof}
+	We may assume $X$ is affine. Let $\lLl^{\bullet} \rightarrow \gGg$ be a free resolution and apply lem \ref{lem:1.20} to $f^{\str}\! \lLl^{\bullet}$ and $\fFf\otimes -$. We find a double complex s.t.
+	$$
+	'\!{E_{p,q}^2}=\Tor_p\left(\fFf, \L_q f^{\str} \gGg\right),\quad ''\!E_{p, q}^2= \L_p\left(\fFf \otimes f^{\str}\right)\gGg.
+	$$
+\end{proof}
+
+\begin{proposition}{Projection Formula}{}
+	Let $X \subseteq Z$, and $Y$, $Z \in \Sm_{\Bbbk}$ and $f\colon X \rightarrow Y$ proper. Suppose $\fFf \!\in\!\kKk_a(x)$, $\gGg\!\in\!\kKk_b(Y)$, $\fFf$, $f^{\str} \gGg$ i.p.. Then
+	$$
+	f_{\str}\left(\ZZ_a(\fFf) \cdot \ZZ_b(\gGg)\right)=\left(f_{\str} \ZZ_a(\fFf)\right) \cdot \ZZ_b(\gGg) .
+	$$
+\end{proposition}
+\begin{proof}
+
+	Pick $\lLl^{\bullet} \rightarrow \gGg$ a resolution and apply Lem \ref{lem:1.20} to $\fFf
+	\otimes f^{\str}\lLl^{\bullet}$ and $f_{\str}$. We have a double complex $\MmM_{i\!j}$
+	s.t. $$ '\!E_{p, q}^2=\R^{-P} \fFf_{\str} L_q\left(\fFf \otimes f^{\str}\right) \gGg. $$
+
+	On the other hand,
+	\[
+			H_q\left(M_{\bullet, n}\right)=\R^{-q} f_{\str}\left(\fFf \otimes f^{\str}\!\lLl_n\right)=(\R^{-q}f_{\str}\fFf)\otimes \lLl_n.
+	\]
+	so $''\!E_{p,q}=\Tor_p(\R^{-q}f_{\str}\fFf,\gGg)$
+\end{proof}
+
